@@ -22,3 +22,19 @@ footer { padding: 2rem 6vw; font-size: .9rem; background: var(--ink); color: var
 @media (hover: hover) { body { cursor: none; } a, button { cursor: none; } }
 @media (max-width: 800px) { .feastables { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+.arena { max-width: 640px; margin-top: 1rem; }
+.arena-q { font-size: 1.3rem; font-weight: 600; }
+.arena-d { opacity: .75; margin-bottom: 1rem; }
+.arena-opts { display: grid; gap: .8rem; margin: 1rem 0; }
+.vote-btn { padding: 1rem 1.2rem; border-radius: 14px; border: 2px solid var(--yellow); background: transparent; color: var(--white); font: inherit; font-size: 1.05rem; text-align: left; transition: background .2s, color .2s, transform .2s; }
+.vote-btn:hover { background: var(--yellow); color: var(--ink); transform: translateX(6px); }
+.bar { position: relative; display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.2rem; border-radius: 14px; background: rgba(255,255,255,.1); overflow: hidden; }
+.bar .fill { position: absolute; inset: 0 auto 0 0; background: var(--blue); transition: width .8s cubic-bezier(.2,.8,.2,1); }
+.bar.lead .fill { background: var(--yellow); }
+.bar.lead { color: var(--ink); }
+.bar-label, .bar-pct { position: relative; z-index: 1; }
+.bar-pct { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.arena-err { color: #ff8a8a; }
+.arena-meta { font-size: .9rem; opacity: .8; display: flex; align-items: center; gap: .5rem; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: #888; }
+.dot.live { background: #3ddc84; }

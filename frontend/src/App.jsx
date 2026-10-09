@@ -1,7 +1,7 @@
 import Cursor from "./components/Cursor.jsx";
 import Feastables from "./components/Feastables.jsx";
 import Reels from "./components/Reels.jsx";
-
+import Arena from "./components/Arena.jsx";
 export default function App() {
   return (
     <>
@@ -13,7 +13,7 @@ export default function App() {
       <Feastables />
       <section className="panel games" data-cursor="games">
         <h2>Beast Games arena</h2>
-        <p>Live voting and leaderboard land in Phase 2.</p>
+        <Arena />
       </section>
       <Reels />
       <footer data-cursor="default">Unofficial fan project, not affiliated with MrBeast or his companies.</footer>

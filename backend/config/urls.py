@@ -1,2 +1,8 @@
+from django.contrib import admin
 from django.urls import path, include
-urlpatterns = [path("api/", include("reels.urls"))]
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("api/", include("reels.urls")),
+    path("api/", include("arena.urls")),
+]
