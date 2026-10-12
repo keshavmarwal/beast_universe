@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { apiUrl } from "../config.js";
 
 const fmt = new Intl.NumberFormat("en", {
   notation: "compact",
@@ -30,7 +31,7 @@ export default function Stats() {
   const [s, setS] = useState(null);
 
   useEffect(() => {
-    fetch("/api/stats/")
+    fetch(apiUrl("/api/stats/"))
       .then((r) => r.json())
       .then(setS)
       .catch(() => {});

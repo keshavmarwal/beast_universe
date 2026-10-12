@@ -48,7 +48,7 @@ export default function CameraBackground() {
       />
       <div className="cam-ui">
         <button className="btn primary cam-btn" onClick={on ? stop : start}>
-          {on ? "Turn camera off" : "📷 Camera background"}
+          {on ? "Turn camera off" : "📷"}
         </button>
         {error && <p className="cam-err">{error}</p>}
       </div>

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { apiUrl } from "../config.js";
 
 export default function Reels() {
   const [state, setState] = useState({ source: "loading", items: [] });
   useEffect(() => {
-    fetch("/api/reels/")
+    fetch(apiUrl("/api/reels/"))
       .then((r) => r.json())
       .then(setState)
       .catch(() => setState({ source: "error", items: [] }));

@@ -4,14 +4,10 @@ import "./Playlist.css";
 const TRACKS = [
   { title: "End of Beginning", artist: "Djo", youtubeId: "xy3AcmW0lrQ" },
   { title: "Delete Ya", artist: "Djo", youtubeId: "rBXRMEZCNJA" },
-  { title: "Basic Being Basic", artist: "Djo", youtubeId: "https://www.youtube.com/results?search_query=Djo+Basic+Being+Basic" },
-  { title: "Chateau (Feel Alright)", artist: "Djo", youtubeId: "https://www.youtube.com/results?search_query=Djo+Chateau+Feel+Alright" },
-  { title: "Roddy", artist: "Djo", youtubeId: "https://www.youtube.com/results?search_query=Djo+Roddy+official" },
   { title: "Waka Waka (This Time for Africa)", artist: "Shakira", youtubeId: "pRpeEdMmmQ0" },
   { title: "Hips Don't Lie", artist: "Shakira", youtubeId: "DUT5rEU6pqM" },
   { title: "Whenever, Wherever", artist: "Shakira", youtubeId: "weRHyjj34ZE" },
   { title: "She Wolf", artist: "Shakira", youtubeId: "booKP974B0k" },
-  { title: "La La La (Brazil 2014)", artist: "Shakira", youtubeId: "https://www.youtube.com/results?search_query=Shakira+La+La+La+Brazil+2014+official" },
   { title: "Beautiful Liar", artist: "Beyoncé, Shakira", youtubeId: "https://www.youtube.com/results?search_query=Beyonce+Shakira+Beautiful+Liar+official" },
 ];
 

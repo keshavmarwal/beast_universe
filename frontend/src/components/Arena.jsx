@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { apiUrl, wsUrl } from "../config.js";
 
 const COLORS = ["#ffd400", "#1a4dff", "#ffffff", "#ff4d6d", "#3ddc84"];
 
@@ -41,7 +42,6 @@ function Confetti() {
 
 function Bar({ option, pct, lead, mine }) {
   const [w, setW] = useState(0);
-  // start at 0, then grow, so the bar "reveals" with animation
   useEffect(() => {
     const id = requestAnimationFrame(() => setW(pct));
     return () => cancelAnimationFrame(id);
@@ -77,8 +77,7 @@ export default function Arena() {
     let ws;
     let closed = false;
     const connect = () => {
-      const proto = location.protocol === "https:" ? "wss" : "ws";
-      ws = new WebSocket(`${proto}://${location.host}/ws/arena/`);
+      ws = new WebSocket(wsUrl("/ws/arena/"));
       ws.onopen = () => setStatus("live");
       ws.onmessage = (e) => setData(JSON.parse(e.data));
       ws.onclose = () => {
@@ -112,7 +111,7 @@ export default function Arena() {
   async function vote(optionId) {
     setError("");
     try {
-      const res = await fetch("/api/arena/vote/", {
+      const res = await fetch(apiUrl("/api/arena/vote/"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ option_id: optionId, voter_key: getVoterKey() }),
