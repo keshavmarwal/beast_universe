@@ -82,3 +82,138 @@ html { scroll-behavior: smooth; }
   .feastables { transition: none; }
   .blurb { animation: none; }
 }
+
+
+.stats { display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; margin-top: .5rem; }
+.stat strong { display: block; font-family: "Bowlby One", sans-serif; font-weight: 400; font-size: clamp(1.6rem, 4vw, 2.6rem); color: var(--yellow); font-variant-numeric: tabular-nums; }
+.stat span { font-size: .85rem; opacity: .8; }
+
+.playlist-panel { background: var(--blue); color: var(--white); }
+.playlist { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 2rem; margin-top: 1.5rem; align-items: start; }
+
+.player { background: var(--ink); border-radius: 20px; padding: 1.4rem; }
+.eq { display: flex; align-items: flex-end; gap: 6px; height: 70px; margin-bottom: 1rem; }
+.eq span { flex: 1; height: 12%; border-radius: 4px; background: var(--yellow); }
+.eq.on span { animation: bounce 900ms ease-in-out infinite alternate; animation-delay: calc(var(--n) * 70ms); }
+@keyframes bounce { from { height: 12%; } to { height: 100%; } }
+
+.now { font-size: .85rem; opacity: .85; }
+.now strong { display: block; font-size: 1.15rem; opacity: 1; margin-top: .2rem; color: var(--yellow); }
+.yt { width: 100%; aspect-ratio: 16/9; border: 0; border-radius: 12px; margin-top: 1rem; }
+.hint { margin-top: 1rem; opacity: .8; }
+
+.tracks { list-style: none; padding: 0; display: grid; gap: .6rem; }
+.track { width: 100%; display: grid; grid-template-columns: 2.2rem 1fr auto; gap: .8rem; align-items: center; padding: .9rem 1.1rem; border-radius: 14px; border: 2px solid rgba(255,255,255,.3); background: transparent; color: var(--white); font: inherit; text-align: left; transition: background .2s, color .2s, transform .2s; }
+.track:hover { transform: translateX(6px); border-color: var(--yellow); }
+.track.on { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+.num { font-variant-numeric: tabular-nums; opacity: .7; }
+.ta { font-size: .85rem; opacity: .8; }
+
+@media (max-width: 800px) { .playlist { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .eq.on span { animation: none; height: 60%; } }
+
+.stage { display: grid; gap: 1.2rem; min-width: 0; }
+.ar-box { background: rgba(11, 20, 64, .08); border-radius: 18px; padding: 1rem; }
+.ar-title { font-weight: 600; margin-bottom: .4rem; }
+.ar-btn { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); }
+
+.cam-video { display: none; position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); z-index: -1; }
+.cam-video.on { display: block; }
+
+.cam-ui { position: fixed; right: 1rem; bottom: 1rem; z-index: 60; display: grid; gap: .5rem; justify-items: end; }
+.cam-btn { box-shadow: 0 6px 20px rgba(0, 0, 0, .3); }
+.cam-err { max-width: 260px; padding: .5rem .8rem; border-radius: 10px; background: var(--ink); color: #ffb3b3; font-size: .85rem; }
+
+body.cam-on { background: transparent; }
+body.cam-on .nav { background: rgba(11, 20, 64, .7); backdrop-filter: blur(8px); }
+body.cam-on .hero { background: rgba(26, 77, 255, .45); }
+body.cam-on .feastables { background: color-mix(in srgb, var(--tint, #ffd400) 45%, transparent); }
+body.cam-on .games { background: rgba(11, 20, 64, .65); }
+body.cam-on .playlist-panel { background: rgba(26, 77, 255, .55); }
+body.cam-on .reels { background: rgba(223, 232, 255, .55); }
+body.cam-on footer { background: rgba(11, 20, 64, .75); }
+body.cam-on .panel, body.cam-on .hero { backdrop-filter: blur(4px); }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+.js-motion .reveal { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); }
+.js-motion .reveal.in { opacity: 1; transform: none; }
+
+.hero h1 { transform: translateY(calc(var(--sy, 0) * -0.12px)); }
+.hero .pitch { transform: translateY(calc(var(--sy, 0) * -0.06px)); }
+
+.hero { position: relative; overflow: hidden; }
+.hero-scene { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero > *:not(.hero-scene) { position: relative; z-index: 1; }
+
+.arena { position: relative; }
+.vote-btn:active { transform: scale(.97); }
+.vote-btn:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+.bar.lead { box-shadow: 0 0 0 2px var(--yellow), 0 0 28px rgba(255, 212, 0, .55); animation: glow 2s ease-in-out infinite; }
+@keyframes glow { 50% { box-shadow: 0 0 0 2px var(--yellow), 0 0 46px rgba(255, 212, 0, .9); } }
+.bar.mine { outline: 2px dashed var(--white); outline-offset: 4px; }
+.bar em { font-style: normal; opacity: .75; font-size: .85em; }
+
+.confetti { position: absolute; left: 50%; top: 35%; width: 0; height: 0; pointer-events: none; z-index: 5; }
+.confetti i { position: absolute; width: 9px; height: 14px; border-radius: 2px; background: var(--c); opacity: 0; animation: confetti 1.5s cubic-bezier(.2, .7, .3, 1) forwards; }
+@keyframes confetti {
+  0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar.lead { animation: none; }
+  .bar .fill { transition: none; }
+}
+
+.vinyl { position: relative; width: min(220px, 62%); aspect-ratio: 1; margin: 0 auto 1.2rem; border-radius: 50%;
+  background:
+    conic-gradient(from 20deg, transparent 0 18%, rgba(255,255,255,.14) 24%, transparent 30% 68%, rgba(255,255,255,.14) 74%, transparent 80%),
+    repeating-radial-gradient(circle, #0d0d0d 0 3px, #1d1d1d 3px 5px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .5);
+  animation: spin 3.2s linear infinite; animation-play-state: paused; }
+.vinyl.spin { animation-play-state: running; }
+.vinyl-label { position: absolute; inset: 33%; border-radius: 50%; background: var(--yellow); color: var(--ink); display: grid; place-items: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+.vinyl-label::after { content: ""; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); top: 12%; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.reel { transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s; }
+.reel:hover { transform: perspective(700px) rotateY(-5deg) rotateX(2deg) translateY(-8px) scale(1.03); box-shadow: 0 22px 44px rgba(11, 20, 64, .35); }
+.feed { padding-inline: .6rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl { animation: none; }
+  .reel, .reel:hover { transition: none; transform: none; }
+}
+
+
+.impact-panel { background: var(--white); color: var(--ink); }
+.impact { display: grid; gap: 1rem; margin-top: 1.5rem; }
+
+.map-wrap { background: #eaf0ff; border-radius: 20px; padding: .5rem; overflow: hidden; }
+.map-wrap svg { display: block; width: 100%; height: auto; }
+.land { fill: #c3d1ff; stroke: #fff; stroke-width: .5; animation: landIn 1s ease both; }
+@keyframes landIn { from { opacity: 0; } }
+
+.pin { outline: none; }
+.pin .dot { fill: #ff4d6d; stroke: #fff; stroke-width: 2; transform-box: fill-box; transform-origin: center; transition: transform .25s, fill .25s; }
+.pin .ring { fill: none; stroke: #ff4d6d; stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: ping 2s ease-out infinite; }
+.pin.on .dot { transform: scale(1.5); fill: var(--ink); }
+.pin:focus-visible .dot { stroke: var(--blue); stroke-width: 3; }
+@keyframes ping { from { transform: scale(.6); opacity: .9; } to { transform: scale(2.4); opacity: 0; } }
+
+.impact-card { background: var(--ink); color: var(--white); border-radius: 20px; padding: 1.2rem 1.5rem; animation: fadeIn .4s ease; }
+.impact-place { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
+.impact-card h3 { font-family: "Bowlby One", sans-serif; font-weight: 400; font-size: 1.5rem; color: var(--yellow); }
+.impact-stat { font-family: "Bowlby One", sans-serif; font-size: 2rem; color: #ff8fa6; margin: .2rem 0 .4rem; }
+.impact-note { font-size: .8rem; opacity: .65; margin-top: .8rem; }
+
+body.cam-on .impact-panel { background: rgba(255, 255, 255, .6); }
+
+@media (prefers-reduced-motion: reduce) {
+  .land, .pin .ring { animation: none; }
+}

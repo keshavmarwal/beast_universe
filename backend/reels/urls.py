@@ -1,3 +1,7 @@
 from django.urls import path
-from .views import reels
-urlpatterns = [path("reels/", reels)]
+from .views import reels, stats
+
+urlpatterns = [
+    path("reels/", reels),
+    path("stats/", stats),
+]

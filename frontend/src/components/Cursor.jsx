@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 
-const ICONS = { default: "●", feastables: "🍫", games: "◎", reels: "▶" };
-
+// const ICONS = { default: "●", feastables: "🍫", games: "◎", reels: "▶" };
+// const ICONS = { default: "●", feastables: "🍫", games: "◎", reels: "▶", playlist: "🎧" };
+const ICONS = { default: "●", feastables: "🍫", games: "◎", reels: "▶", playlist: "🎧", ideas: "💡", impact: "❤" };
 export default function Cursor() {
   const el = useRef(null);
   useEffect(() => {
