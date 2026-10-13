@@ -44,8 +44,7 @@ export default function App() {
           ))}
         </h1>
         <p className="pitch">
-          Maine ye tumhare liye banaya: ek universe jisme har product ka apna
-          world hai. Live voting, 3D, aur real-time data, sab ek jagah.
+          A fan-made concept showing how a product universe could feel: real-time fan voting, immersive 3D and AR, and AI-powered challenge ideas, built end to end with Django and React.
         </p>
         <div className="hero-actions">
           <a className="btn primary" href="#arena">Play the arena</a>
